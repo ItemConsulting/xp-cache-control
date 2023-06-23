@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site xmlns="urn:enonic:xp:model:1.0">
+  <form>
+    <input name="enableCacheControlHeader" type="CheckBox">
+      <label i18n="site.enableCacheControlHeader">Enable cache control header</label>
+      <default>checked</default>
+    </input>
+
+    <input name="maxAge" type="TextLine">
+      <label i18n="site.maxAge">Max Age</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+  </form>
+
+  <processors>
+    <response-processor name="cache-control" order="10"/>
+  </processors>
+</site>
