@@ -1,5 +1,6 @@
 plugins {
   id 'java'
+  id 'maven-publish'
   id "com.github.node-gradle.node" version '3.4.0'
   id 'com.enonic.xp.app' version '3.1.0'
   id 'no.item.xp.codegen' version '2.2.2'
@@ -80,4 +81,15 @@ def nodeEnvironment() {
   def environments = [prod: 'production', dev: 'development']
   def nodeEnv = environments[hasProperty('env') ? env : 'prod']
   return nodeEnv != null ? nodeEnv : 'production'
+}
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+      groupId group
+      artifactId projectName
+      version version
+    }
+  }
 }
