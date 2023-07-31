@@ -2,7 +2,8 @@
 
 This app lets you set a Cache Control header for your XP pages. This will only apply to HTML-pages.
 
- > **Note** Enonic XP will [already set a Cache Control header on assets](https://developer.enonic.com/docs/xp/stable/runtime/engines/asset-service#cache_headers) served by XP.
+ > [!NOTE]\
+ > Enonic XP will [already set a Cache Control header on assets](https://developer.enonic.com/docs/xp/stable/runtime/engines/asset-service#cache_headers) served by XP.
 
 This can be used to tell a CDN how long to cache HTML-pages, or the browser itself on how long to keep pages.
 
@@ -18,8 +19,11 @@ You can download the jar from Jitpack and deploy it in your *XP_HOME/deploy* dir
 
 When you add the Cache Control application to your *site*, you can to configure these fields under site config.
 
- 1. Enable setting the cache control header
- 2. Set the max time in seconds that will be used on your pages.
+1. Enable setting the cache control header
+2. Set the max time in seconds that will be used on your pages.
+3. Set the shared max time in seconds (which are used by shared caches, e.g CDNs)
+4. Set if response should include `"Last-Modified"` header. Also resolves requests with `"If-Modified-Since"` headers
+   to status _307 (Not Modified)_ and empty body if the value is equal to `"Last-Modified"`. 
 
 ## Deploying
 
