@@ -18,6 +18,8 @@ dependencies {
   implementation "com.enonic.xp:script-api:${xpVersion}"
   include "com.enonic.xp:lib-portal:${xpVersion}"
   include "com.enonic.xp:lib-i18n:${xpVersion}"
+  include "com.enonic.xp:lib-i18n:${xpVersion}"
+  include "no.item:lib-xp-time:1.0.2"
 }
 
 repositories {
