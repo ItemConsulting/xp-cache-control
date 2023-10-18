@@ -3,21 +3,15 @@ import { DateTimeFormatter, ZonedDateTime } from "/lib/time";
 import type { Request, Response } from "@item-enonic-types/global/controller";
 
 const STATUS_304_NOT_MODIFIED = 304;
-const NO_VALUE_SET: string[] = [];
 
 export function responseProcessor(req: Request, res: Response): Response {
   const siteConfig = getSiteConfig<XP.SiteConfig>();
   const content = getContent();
 
   if (siteConfig?.enableCacheControlHeader) {
-    const cacheControlHeader = ([] as string[])
-      .concat(siteConfig.maxAge ? [`max-age=${siteConfig.maxAge}`] : NO_VALUE_SET)
-      .concat(siteConfig.sMaxAge ? [`s-maxage=${siteConfig.sMaxAge}`] : NO_VALUE_SET)
-      .join(", ");
-
     res.headers = {
       ...(res.headers ?? {}),
-      "Cache-Control": cacheControlHeader,
+      "Cache-Control": siteConfig.cacheControlHeader,
     };
 
     if (siteConfig.includeLastModified && content) {
