@@ -20,9 +20,8 @@ You can download the jar from Jitpack and deploy it in your *XP_HOME/deploy* dir
 When you add the Cache Control application to your *site*, you can to configure these fields under site config.
 
 1. Enable setting the cache control header
-2. Set the max time in seconds that will be used on your pages.
-3. Set the shared max time in seconds (which are used by shared caches, e.g CDNs)
-4. Set if response should include `"Last-Modified"` header. Also resolves requests with `"If-Modified-Since"` headers
+2. Set the Cache-Control header string. E.g. `max-age=60, s-maxage=60`
+3. Set if response should include `"Last-Modified"` header. Also resolves requests with `"If-Modified-Since"` headers
    to status _307 (Not Modified)_ and empty body if the value is equal to `"Last-Modified"`. 
 
 ## Deploying
