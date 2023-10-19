@@ -10,14 +10,9 @@ declare global {
       enableCacheControlHeader: boolean;
 
       /**
-       * Max Age in Seconds (max-age)
+       * Cache control header
        */
-      maxAge?: string;
-
-      /**
-       * Shared Max Age in Seconds (s-maxage)
-       */
-      sMaxAge?: string;
+      cacheControlHeader?: string;
 
       /**
        * Include LastModified header
